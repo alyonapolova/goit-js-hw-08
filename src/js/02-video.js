@@ -6,7 +6,7 @@ const iframe = document.querySelector('iframe');
 const player = new Player(iframe);
 
 const onPlay = function (data) {
-  console.log(data.seconds);
+  console.log('currentTime:', data.seconds);
   const currentTime = data.seconds;
   //console.log(typeof currentTime);
   localStorage.setItem('videoplayer-current-time', JSON.stringify(currentTime));
@@ -17,7 +17,7 @@ player.on('timeupdate', throttle(onPlay, 1000));
 const newTime = localStorage.getItem('videoplayer-current-time');
 const savedTime = JSON.parse(newTime);
 
-console.log(typeof savedTime);
+//console.log(typeof savedTime);
 
 if (savedTime !== null) {
   player
